@@ -12,35 +12,9 @@ class Dispatcher extends Zend_Controller_Plugin_Abstract
     {
         $templater = Zend_Registry::get('templater');
 
-        $producers = new Producers();
-        $categories = new Categories();
-        $templater->assign('producers', $categories->getProducersTopLevel());
-        $templater->assign('side_categories', $categories->getByParentId('0'));
-
         /** Assign global settings * */
         $settings =  new Eve_Settings();
         $templater->assign('settings', $settings);
-
-        /** Banners * */
-        $bannersModel = new Banners();        
-        if($settings->useFlashMainBanner == 0) {
-            $banners = $bannersModel->getAll();
-            $bannersData = array();        
-            foreach ($banners as $k => $banner){
-                $templater->assign('banner', $banner);            
-                $bannersData[$k]['content'] = $templater->fetch('df/default/inc/bannerContent.tpl');
-                $bannersData[$k]['content_button'] = $templater->fetch('df/default/inc/bannerContentButton.tpl');;
-            }
-            $templater->assign('banners', json_encode($bannersData));   
-        } else {
-            $templater->assign('banners', $bannersModel->getFlashBanner());            
-        }
-        
-        if($settings->bottomBanner){
-            if(substr($settings->bottomBanner, -3) == 'swf'){
-                $templater->assign('bottomBannerFlash', true);
-            }
-        }
 
         $templater->assign('server', (object) $_SERVER);
 
@@ -52,7 +26,7 @@ class Dispatcher extends Zend_Controller_Plugin_Abstract
         foreach ($items as &$item) {
             if ($item->link == $this->_request->getRequestUri()) {
                 $item->selected = true;
-            } elseif (strpos($this->_request->getRequestUri(), $item->link) === 0 && $item->link != '/') {
+            } elseif (!empty ($item->link) && strpos($this->_request->getRequestUri(), $item->link) === 0 && $item->link != '/') {
                 $item->selected = true;
             }
         }

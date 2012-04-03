@@ -6,7 +6,7 @@
 			<host>localhost</host>
 			<username>root</username>
 			<password>pass</password>
-			<dbname>df</dbname>
+			<dbname>wmn-demo</dbname>
 		</params>
 		<!--<params>
 			<host>localhost</host>
