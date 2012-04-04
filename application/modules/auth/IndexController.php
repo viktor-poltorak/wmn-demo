@@ -21,18 +21,19 @@ class Auth_IndexController extends Eve_Controller_Action
 
     public function indexAction()
     {
-        if ($this->_isLogged())
-            $this->_redirect('/manager');
+        if ($this->_isLogged()) {
+            $this->_redirect('/');
+        }
 
         $this->_assign('mode', 'login');
-        $this->_show('auth/login.tpl');
+        $this->_display('auth/login.tpl');
     }
 
     public function loginAction()
     {
-
-        if ($this->_isLogged())
+        if ($this->_isLogged()) {
             $this->_redirect('/');
+        }
 
         $username = trim($this->_request->username);
         $password = trim($this->_request->password);
@@ -41,21 +42,21 @@ class Auth_IndexController extends Eve_Controller_Action
             if (!$this->_auth->login($username, $password)) {
                 $this->_assign('errors', (array) $this->errors->login_failed);
                 $this->_assign('mode', 'login');
-                $this->_show('auth/login.tpl');
+                $this->_display('auth/login.tpl');
             } else {
                 $this->_redirect('/manager/');
             }
         } catch (Exception $e) {
             $this->_assign('errors', (array) $this->errors->login_failed);
             $this->_assign('mode', 'login');
-            $this->_show('auth/login.tpl');
+            $this->_display('auth/login.tpl');
         }
     }
 
     public function logoutAction()
     {
         $this->_auth->logout();
-        $this->_redirect('/login/');
+        $this->_redirect('/');
     }
 
     public function resetPasswordAction()
@@ -66,7 +67,7 @@ class Auth_IndexController extends Eve_Controller_Action
             $this->_assign('errors', (array) $this->errors->user_not_found);
             $this->_assign('username', $this->_request->username);
             $this->_assign('mode', 'restore');
-            $this->_show('auth/login.tpl');
+            $this->_display('auth/login.tpl');
         } else {
             //make new password
             $newPassword = $this->_auth->makePassword($this->_request->email);
@@ -102,7 +103,7 @@ class Auth_IndexController extends Eve_Controller_Action
     {
         $this->_assign('mode', 'login');
         $this->_assign('message', 'Пароль был отправлен вам на почту.');
-        $this->_show('auth/login.tpl');
+        $this->_display('auth/login.tpl');
     }
 
 }

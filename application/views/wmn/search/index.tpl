@@ -26,7 +26,3 @@
 		</div>
 	</div>
 </div>
-<div class="page-corners"><div></div></div>
-<div class="banner">
-	{include file='inc/bottom-banner.tpl'}
-</div>

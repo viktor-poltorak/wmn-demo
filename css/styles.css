@@ -54,7 +54,7 @@ a:hover {
     background-color: #e7e7e7;
 }
 
-#shapka {
+#header {
     position: relative;
     float: left;
     width: 100%;
@@ -301,7 +301,7 @@ a:hover {
 
 .okno_reklama h2, .okno_center h2 {
     margin: 0px;
-    background: #5bc3e6 url('/images/wmn/shapka_okno.jpg') repeat-x;
+    background: #5bc3e6 url('/images/wmn/header_okno.jpg') repeat-x;
     text-align: center;
     color: #fafafa;
     height: 21px;
@@ -414,7 +414,7 @@ a:hover {
 
 .okno_center h2 {
     /*margin: 0px;
-    background: #eee url('/images/wmn/shapka_news.jpg') repeat-x;
+    background: #eee url('/images/wmn/header_news.jpg') repeat-x;
     text-align: center;
     color: #393939;
     height: 22px;
@@ -426,7 +426,7 @@ a:hover {
 
 .okno_center h3 {
     margin: 0px;
-    background: #eee url('/images/wmn/shapka_bl.jpg') repeat-x;
+    background: #eee url('/images/wmn/header_bl.jpg') repeat-x;
     text-align: center;
     color: white;
     height: 22px;
@@ -890,7 +890,7 @@ p.profile_help {
 
 .okno_reklama_temp h2 {
     margin: 0px;
-    background: #5bc3e6 url('img/shapka_okno.jpg') repeat-x;
+    background: #5bc3e6 url('img/header_okno.jpg') repeat-x;
     text-align: center;
     color: #fafafa;
     height: 21px;
