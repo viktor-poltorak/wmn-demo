@@ -4,13 +4,20 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>{$globalTitle}</title>
         <link href="/css/styles.css" rel="stylesheet" type="text/css" />
+        {foreach from=$css item=style}
+        <link href="/css/{$style}.css" rel="stylesheet" type="text/css" />
+        {/foreach}
         <script src="/js/libs/jquery.js"></script>
         <script src="/js/main.js"></script>
+        {foreach from=$js item=script}
+        <script type="text/javascript" src="/js/{$script}.js"></script>
+        {/foreach}
         <link rel="icon" href="/favicon-eve.ico" type="image/x-icon" />
         <link rel="shortcut icon" href="/favicon-eve.ico" type="image/x-icon" />
         {foreach from=$siteMeta item=meta}
         <meta content="{$meta->content}" name="{$meta->name}" />
         {/foreach}
+        
         {$additionMetaTags}
     </head>    
     <body>

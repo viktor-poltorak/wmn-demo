@@ -10,8 +10,8 @@
             <img height="64" width="64" src="/images/admin/icons/catalog.png" alt="" />
             Каталог компаний
         </a>
-    </div>	
-</div>	
+    </div>
+</div>
 <!--<div class="manager-menu-icon">
     <a href="/manager/menus/">
         <img src="/images/admin/icons/menu.png" alt="" />
